@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Luma block under product.info.main renders below the Hyvä PDP card -->
+        <referenceBlock name="solutioo.eu.guarantee.garan" remove="true"/>
+        <referenceContainer name="product.info.additional">
+            <block class="Solutioo\EuGuaranteeLabel\Block\Product\Garan"
+                   name="solutioo.eu.guarantee.garan.hyva"
+                   template="Solutioo_EuGuaranteeLabel::product/garan.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

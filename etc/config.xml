@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <solutioo_eu_guarantee>
+            <general>
+                <enabled>1</enabled>
+                <locale_mode>auto</locale_mode>
+                <locale_fixed>de</locale_fixed>
+                <more_info_url></more_info_url>
+            </general>
+            <display>
+                <show_footer>1</show_footer>
+                <footer_style>link</footer_style>
+                <show_cart>1</show_cart>
+                <show_checkout>1</show_checkout>
+                <show_notice_page>1</show_notice_page>
+                <footer_heading>Gesetzliche Gewährleistung</footer_heading>
+                <cart_text>Ihre gesetzlichen Gewährleistungsrechte</cart_text>
+            </display>
+            <garan>
+                <enabled>1</enabled>
+                <show_on_pdp>1</show_on_pdp>
+                <mail_link>1</mail_link>
+            </garan>
+        </solutioo_eu_guarantee>
+    </default>
+</config>

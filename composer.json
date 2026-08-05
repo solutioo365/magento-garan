@@ -1,0 +1,48 @@
+{
+    "name": "solutioo/module-eu-guarantee-label",
+    "description": "Magento 2 EU legal guarantee label and GARAN commercial durability guarantee for Luma and Hyvä storefronts.",
+    "type": "magento2-module",
+    "version": "1.0.0",
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "authors": [
+        {
+            "name": "Solutioo",
+            "email": "info@solutioo.de",
+            "homepage": "https://www.solutioo.de"
+        }
+    ],
+    "keywords": [
+        "magento2",
+        "magento",
+        "eu-guarantee",
+        "gewährleistung",
+        "garan",
+        "harmonised-label",
+        "hyva",
+        "adobe-commerce",
+        "consumer-rights",
+        "solutioo"
+    ],
+    "require": {
+        "php": ">=8.1",
+        "solutioo/module-base": "^1.0",
+        "magento/framework": "*",
+        "magento/module-catalog": "*",
+        "magento/module-checkout": "*",
+        "magento/module-store": "*",
+        "magento/module-sales": "*",
+        "magento/module-email": "*",
+        "magento/module-webapi": "*"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Solutioo\\EuGuaranteeLabel\\": ""
+        }
+    }
+}

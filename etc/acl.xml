@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Solutioo_Base::solutioo">
+                    <resource id="Solutioo_EuGuaranteeLabel::config"
+                              title="EU Gewährleistung / GARAN"
+                              sortOrder="95">
+                        <resource id="Solutioo_EuGuaranteeLabel::api"
+                                  title="API"
+                                  sortOrder="10"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

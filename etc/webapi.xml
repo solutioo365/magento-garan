@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+
+    <route url="/V1/solutioo/eu-guarantee/garan/product/:sku" method="GET">
+        <service class="Solutioo\EuGuaranteeLabel\Api\GaranProductManagementInterface" method="get"/>
+        <resources>
+            <resource ref="Solutioo_EuGuaranteeLabel::api"/>
+        </resources>
+    </route>
+
+    <route url="/V1/solutioo/eu-guarantee/garan/product/:sku" method="PUT">
+        <service class="Solutioo\EuGuaranteeLabel\Api\GaranProductManagementInterface" method="save"/>
+        <resources>
+            <resource ref="Solutioo_EuGuaranteeLabel::api"/>
+        </resources>
+    </route>
+
+    <route url="/V1/solutioo/eu-guarantee/garan/products" method="PUT">
+        <service class="Solutioo\EuGuaranteeLabel\Api\GaranProductManagementInterface" method="saveList"/>
+        <resources>
+            <resource ref="Solutioo_EuGuaranteeLabel::api"/>
+        </resources>
+    </route>
+
+    <route url="/V1/solutioo/eu-guarantee/garan/import/xml" method="POST">
+        <service class="Solutioo\EuGuaranteeLabel\Api\GaranXmlImportInterface" method="importXml"/>
+        <resources>
+            <resource ref="Solutioo_EuGuaranteeLabel::api"/>
+        </resources>
+    </route>
+</routes>

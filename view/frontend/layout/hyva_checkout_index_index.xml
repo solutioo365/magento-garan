@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!--
+            Without Hyvä Checkout there is no usable checkout UI. Hide any leftover
+            notice block; customers still reach the label via cart + footer.
+        -->
+        <referenceBlock name="solutioo.eu.guarantee.checkout" remove="true"/>
+    </body>
+</page>

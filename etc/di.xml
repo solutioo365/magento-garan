@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Solutioo\EuGuaranteeLabel\Api\GaranProductManagementInterface"
+                type="Solutioo\EuGuaranteeLabel\Model\Api\GaranProductManagement"/>
+    <preference for="Solutioo\EuGuaranteeLabel\Api\GaranXmlImportInterface"
+                type="Solutioo\EuGuaranteeLabel\Model\Api\GaranXmlImport"/>
+    <preference for="Solutioo\EuGuaranteeLabel\Api\Data\GaranDataInterface"
+                type="Solutioo\EuGuaranteeLabel\Model\Api\Data\GaranData"/>
+    <preference for="Solutioo\EuGuaranteeLabel\Api\Data\GaranImportResultInterface"
+                type="Solutioo\EuGuaranteeLabel\Model\Api\Data\GaranImportResult"/>
+    <preference for="Solutioo\EuGuaranteeLabel\Api\Data\GaranImportErrorInterface"
+                type="Solutioo\EuGuaranteeLabel\Model\Api\Data\GaranImportError"/>
+</config>

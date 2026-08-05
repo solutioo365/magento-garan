@@ -1,0 +1,22 @@
+<?php
+/** @var \Solutioo\EuGuaranteeLabel\Block\Notice $block */
+/** @var \Magento\Framework\Escaper $escaper */
+if (!$block->isVisible()) {
+    return;
+}
+$label = $block->getCartText() ?: __('Ihre gesetzlichen Gewährleistungsrechte');
+?>
+<p class="eu-guarantee eu-guarantee-inline">
+    <a class="eu-guarantee-inline__link"
+       href="<?= $escaper->escapeUrl($block->getNoticePageUrl()) ?>">
+        <span class="eu-guarantee-inline__icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" focusable="false">
+                <path d="M12 2.5l7 3v5.8c0 4.6-3 8.7-7 9.9-4-1.2-7-5.3-7-9.9V5.5l7-3z"
+                      stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M9.2 12.1l1.9 1.9 3.8-3.9"
+                      stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </span>
+        <span class="eu-guarantee-inline__text"><?= $escaper->escapeHtml($label) ?></span>
+    </a>
+</p>

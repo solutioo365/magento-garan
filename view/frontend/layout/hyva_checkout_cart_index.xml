@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- Place as sibling under cart summary (Hyvä does not rely on Luma plugin insertion alone). -->
+        <referenceContainer name="cart.summary">
+            <block class="Solutioo\EuGuaranteeLabel\Block\Notice"
+                   name="solutioo.eu.guarantee.cart.hyva"
+                   template="Solutioo_EuGuaranteeLabel::inline-link.phtml"
+                   after="checkout.cart.methods.bottom">
+                <arguments>
+                    <argument name="placement" xsi:type="string">cart</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+        <!-- Avoid double output: child under methods.bottom is for Luma plugin path -->
+        <referenceBlock name="solutioo.eu.guarantee.cart" remove="true"/>
+    </body>
+</page>

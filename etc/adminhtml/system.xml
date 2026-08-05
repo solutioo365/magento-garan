@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="solutioo" translate="label" sortOrder="400">
+            <label>Solutioo</label>
+        </tab>
+        <section id="solutioo_eu_guarantee" translate="label" type="text" sortOrder="96"
+                 showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>EU Gewährleistung / GARAN</label>
+            <tab>solutioo</tab>
+            <resource>Solutioo_EuGuaranteeLabel::config</resource>
+
+            <group id="general" translate="label" sortOrder="10"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Allgemein</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Aktiviert</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Gesamtes Modul im Shop an- oder ausschalten.</comment>
+                </field>
+                <field id="locale_mode" translate="label" type="select" sortOrder="20"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Locale für Label-Asset</label>
+                    <source_model>Solutioo\EuGuaranteeLabel\Model\Config\Source\LocaleMode</source_model>
+                </field>
+                <field id="locale_fixed" translate="label comment" type="text" sortOrder="30"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Feste Locale (z. B. de)</label>
+                    <comment>Nur bei Locale-Modus „fest“. Datei muss als view/frontend/web/images/legal-guarantee/{locale}.svg existieren.</comment>
+                    <depends>
+                        <field id="locale_mode">fixed</field>
+                    </depends>
+                </field>
+                <field id="more_info_url" translate="label comment" type="text" sortOrder="40"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Zusatz-Info-URL</label>
+                    <comment>Leer = automatische Your-Europe-URL laut Notice-Locale (gleicher Link wie der QR-Code). Nur bei Bedarf überschreiben.</comment>
+                </field>
+            </group>
+
+            <group id="display" translate="label" sortOrder="20"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Anzeige Gewährleistungslabel</label>
+                <field id="show_footer" translate="label" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Im Footer zeigen</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="footer_style" translate="label comment" type="select" sortOrder="15"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Footer-Darstellung</label>
+                    <source_model>Solutioo\EuGuaranteeLabel\Model\Config\Source\FooterStyle</source_model>
+                    <comment>Dezent: Link in der Footer-Linkzeile (falls vorhanden) → volle Label-Seite; sonst Fallback-Leiste. Auffällig: eigener Streifen mit Aufklappen.</comment>
+                    <depends>
+                        <field id="show_footer">1</field>
+                    </depends>
+                </field>
+                <field id="show_cart" translate="label" type="select" sortOrder="20"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Im Warenkorb zeigen</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_checkout" translate="label" type="select" sortOrder="30"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Im Checkout zeigen</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="show_notice_page" translate="label" type="select" sortOrder="40"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Eigene Infoseite aktiv</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="footer_heading" translate="label" type="text" sortOrder="50"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Footer-Überschrift</label>
+                </field>
+                <field id="cart_text" translate="label" type="text" sortOrder="60"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Warenkorb-/Checkout-Linktext</label>
+                </field>
+            </group>
+
+            <group id="garan" translate="label" sortOrder="30"
+                   showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>GARAN-Label (Haltbarkeitsgarantie)</label>
+                <field id="enabled" translate="label comment" type="select" sortOrder="10"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>GARAN aktiv</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Nur anzeigen, wenn Produktattribute eu_garan_* gültig sind (Jahre &gt; 2, ganze Ware).</comment>
+                </field>
+                <field id="show_on_pdp" translate="label" type="select" sortOrder="20"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Auf Produktseite zeigen</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="mail_link" translate="label comment" type="select" sortOrder="30"
+                       showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Link in Bestellbestätigung</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>Wenn die Bestellung GARAN-Produkte enthält, Hinweis/Link zur Garantieerklärung anhängen.</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

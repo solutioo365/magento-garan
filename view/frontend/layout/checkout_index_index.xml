@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Solutioo_EuGuaranteeLabel::css/eu-guarantee.css"/>
+    </head>
+    <body>
+        <!--
+            Do not place a PHP block in content (floats above shipping on Luma and
+            on Hyvä "no checkout" pages). Luma gets the notice via LayoutProcessor
+            into the order summary sidebar.
+        -->
+    </body>
+</page>

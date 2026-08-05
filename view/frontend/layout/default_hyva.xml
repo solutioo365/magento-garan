@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!-- default.xml also loads under Hyvä; remove Luma footer block to avoid duplicate link -->
+        <referenceBlock name="solutioo.eu.guarantee.footer" remove="true"/>
+        <referenceBlock name="footer-content">
+            <block class="Solutioo\EuGuaranteeLabel\Block\Notice"
+                   name="solutioo.eu.guarantee.footer.hyva"
+                   template="Solutioo_EuGuaranteeLabel::footer.phtml"
+                   after="-">
+                <arguments>
+                    <argument name="placement" xsi:type="string">footer</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

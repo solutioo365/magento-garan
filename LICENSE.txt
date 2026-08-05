@@ -1,0 +1,13 @@
+Open Software License ("OSL") v. 3.0
+
+This software is licensed under the Open Software License version 3.0
+and the Academic Free License version 3.0.
+
+See https://opensource.org/licenses/OSL-3.0
+and https://opensource.org/licenses/AFL-3.0
+
+Copyright (c) Solutioo – https://www.solutioo.de
+
+EU label artwork follows European Commission guidance for the harmonised
+legal guarantee notice and GARAN. Merchants remain responsible for correct
+use under applicable consumer law.

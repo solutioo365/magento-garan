@@ -1,0 +1,28 @@
+<?php
+/** @var \Solutioo\EuGuaranteeLabel\Block\Notice $block */
+/** @var \Magento\Framework\Escaper $escaper */
+if (!$block->isVisible()) {
+    return;
+}
+?>
+<div class="eu-guarantee eu-guarantee-page">
+    <?php /* Page title is set by the controller; do not render a second H1. */ ?>
+    <p><?= $escaper->escapeHtml(__(
+        'Als Verkäufer informieren wir Sie mit dem harmonisierten EU-Gewährleistungslabel über Ihre gesetzlichen Rechte.'
+    )) ?></p>
+    <p>
+        <img src="<?= $escaper->escapeUrl($block->getNoticeImageUrl()) ?>"
+             alt="<?= $escaper->escapeHtmlAttr(__('Harmonisiertes EU-Gewährleistungslabel')) ?>"
+             loading="eager"
+             decoding="async"/>
+    </p>
+    <?php if ($block->getMoreInfoUrl()): ?>
+        <p>
+            <a href="<?= $escaper->escapeUrl($block->getMoreInfoUrl()) ?>"
+               target="_blank"
+               rel="noopener noreferrer">
+                <?= $escaper->escapeHtml(__('Weitere Informationen auf Your Europe')) ?>
+            </a>
+        </p>
+    <?php endif; ?>
+</div>

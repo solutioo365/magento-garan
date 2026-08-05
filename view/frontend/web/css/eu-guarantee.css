@@ -1,0 +1,418 @@
+/* Solutioo_EuGuaranteeLabel – px sizes so Luma (62.5% rem) and Hyvä (16px rem) both look right */
+
+.eu-guarantee {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.45;
+    color: #15202b;
+    box-sizing: border-box;
+}
+
+.eu-guarantee *,
+.eu-guarantee *::before,
+.eu-guarantee *::after {
+    box-sizing: border-box;
+}
+
+.eu-guarantee a {
+    color: #002395;
+    font-weight: 600;
+}
+
+/* Dezent: vor JS-Inject unsichtbar; Fallback = schmale Leiste */
+.eu-guarantee-footer-link {
+    display: none;
+}
+
+.eu-guarantee-footer-link--fallback {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 10px 16px;
+    text-align: center;
+    background: #00446a;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.eu-guarantee-footer-link--fallback .eu-guarantee-footer-link__a {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.eu-guarantee-footer-link--fallback .eu-guarantee-footer-link__a:hover,
+.eu-guarantee-footer-link--fallback .eu-guarantee-footer-link__a:focus-visible {
+    text-decoration: underline;
+}
+
+.bottom-inner > .links a.eu-guarantee-footer-link__a,
+.bottom-container .bottom-inner .links a.eu-guarantee-footer-link__a {
+    font-weight: 400;
+}
+
+li.eu-guarantee-footer-link__item {
+    list-style: none;
+}
+
+.eu-guarantee-footer {
+    width: 100%;
+    margin: 0;
+    padding: 12px 16px 16px;
+    background: #f3f5f8;
+    border-top: 1px solid #d5dce6;
+}
+
+.eu-guarantee-footer-box {
+    max-width: 720px;
+    margin: 0 auto;
+    border: 1px solid #d5dce6;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.eu-guarantee-footer-summary {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    cursor: pointer;
+}
+
+.eu-guarantee-footer-summary::-webkit-details-marker {
+    display: none;
+}
+
+.eu-guarantee-footer-summary::marker {
+    content: "";
+}
+
+.eu-guarantee-footer-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    min-width: 0;
+}
+
+.eu-guarantee-footer-text strong {
+    color: #002395;
+}
+
+.eu-guarantee-footer-text span {
+    color: #5b6775;
+    font-size: 13px;
+}
+
+.eu-guarantee-footer-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: #002395;
+    color: #fff;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.eu-guarantee-footer-btn-close {
+    display: none;
+}
+
+.eu-guarantee-footer-box[open] .eu-guarantee-footer-btn {
+    background: #001a70;
+}
+
+.eu-guarantee-footer-box[open] .eu-guarantee-footer-btn-open {
+    display: none;
+}
+
+.eu-guarantee-footer-box[open] .eu-guarantee-footer-btn-close {
+    display: inline;
+}
+
+.eu-guarantee-footer-panel {
+    padding: 0 16px 16px;
+    border-top: 1px solid #d5dce6;
+}
+
+.eu-guarantee-footer-panel img,
+.eu-guarantee-page img {
+    display: block;
+    width: min(100%, 520px);
+    height: auto;
+    margin: 12px auto 0;
+    border: 1px solid #d5dce6;
+    background: #fafbfc;
+}
+
+.eu-guarantee-footer-panel p,
+.eu-guarantee-page p {
+    margin: 12px 0 0;
+}
+
+/* Warenkorb / Checkout: dezenter Text-Link, kein Button-Look */
+.eu-guarantee-inline {
+    display: block;
+    clear: both;
+    width: 100%;
+    margin: 12px 0 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    text-align: center;
+    float: none;
+}
+
+.eu-guarantee-inline__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    max-width: 100%;
+    padding: 6px 4px;
+    color: #374151;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.4;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.eu-guarantee-inline__link:hover,
+.eu-guarantee-inline__link:focus-visible {
+    color: #002395;
+    border-bottom-color: rgba(0, 35, 149, 0.35);
+    outline: none;
+}
+
+.eu-guarantee-inline__icon {
+    display: inline-flex;
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    overflow: visible;
+    color: #6b7280;
+}
+
+.eu-guarantee-inline__icon svg {
+    display: block;
+    width: 16px;
+    height: 16px;
+    overflow: visible;
+}
+
+.eu-guarantee-inline__link:hover .eu-guarantee-inline__icon,
+.eu-guarantee-inline__link:focus-visible .eu-guarantee-inline__icon {
+    color: #002395;
+}
+
+.eu-guarantee-inline__text {
+    text-align: left;
+}
+
+/* Hyvä cart summary */
+.cart-summary .eu-guarantee-inline,
+.card .eu-guarantee-inline {
+    margin: 14px 0 10px;
+    padding: 0 2px;
+}
+
+.cart-summary .eu-guarantee-inline__link,
+.card .eu-guarantee-inline__link {
+    font-size: 13px;
+    font-weight: 500;
+    color: #4b5563;
+}
+
+/* Luma cart summary */
+.cart-summary .eu-guarantee-inline {
+    margin-top: 12px;
+    margin-bottom: 4px;
+}
+
+/* Luma checkout summary */
+.opc-block-summary .eu-guarantee-inline,
+.eu-guarantee-inline--checkout {
+    margin: 12px 0 4px;
+    text-align: left;
+}
+
+.eu-guarantee-page {
+    max-width: 720px;
+    margin: 0 auto 24px;
+    padding: 0 16px;
+}
+
+.eu-guarantee-page > p:first-child {
+    margin-top: 0;
+}
+
+/* GARAN */
+.eu-garan {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    margin: 12px 0 8px;
+    clear: both;
+    border: 1px solid #d5dce6;
+    border-radius: 6px;
+    background: #fff;
+    box-shadow: inset 0 0 0 0 transparent;
+    transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.eu-garan:hover,
+.eu-garan:focus-within {
+    border-color: #d5dce6;
+    background: #fafbfc;
+    box-shadow: inset 0 0 0 1px #8aa0b5;
+}
+
+.eu-garan--open {
+    border-color: #d5dce6;
+    box-shadow: inset 0 0 0 1px #8aa0b5;
+}
+
+.eu-garan .eu-garan-toggle,
+.eu-garan .eu-garan-toggle:hover,
+.eu-garan .eu-garan-toggle:active,
+.eu-garan .eu-garan-toggle:focus {
+    display: flex !important;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin: 0 !important;
+    padding: 10px 12px !important;
+    border: 1px solid transparent !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    cursor: pointer;
+    text-align: left;
+    line-height: 1.3;
+    outline: none;
+    min-height: 0 !important;
+    height: auto !important;
+    color: inherit;
+}
+
+.eu-garan .eu-garan-toggle:focus-visible {
+    box-shadow: inset 0 0 0 2px #002395 !important;
+}
+
+.eu-garan-years {
+    flex: 0 0 auto;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    gap: 4px;
+    min-height: 28px;
+    padding: 4px 8px;
+    border-radius: 6px;
+    background: #00446a;
+    color: #fff;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.eu-garan-years__num {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.eu-garan-years__unit {
+    font-size: 12px;
+    font-weight: 600;
+    opacity: 0.95;
+}
+
+.eu-garan-toggle__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    min-width: 0;
+}
+
+.eu-garan-caption {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: #3d4a57;
+}
+
+.eu-garan-hint {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.3;
+    color: #00446a;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.eu-garan-hint [hidden] {
+    display: none !important;
+}
+
+.eu-garan-panel {
+    margin: 0;
+    padding: 0 12px 12px;
+    border: 0;
+    border-top: 1px solid #e2e8ef;
+    border-radius: 0;
+    background: transparent;
+}
+
+.eu-garan-panel img {
+    display: block;
+    max-width: 280px;
+    width: 100%;
+    height: auto;
+    margin: 10px 0 0;
+    border: 0;
+    background: #fff;
+}
+
+.eu-garan-panel img + img {
+    margin-top: 8px;
+}
+
+.eu-garan-panel[hidden] {
+    display: none !important;
+}
+
+.eu-garan-panel p {
+    margin: 8px 0 0;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+/* Hyvä: keep GARAN under ATC area full width */
+#product-details + form + .flex + .eu-garan,
+.card .eu-garan {
+    margin-top: 12px;
+}
+
+@media (max-width: 767px) {
+    .eu-guarantee-footer-summary {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .eu-guarantee-footer-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

@@ -1,0 +1,103 @@
+<?php
+/** @var \Solutioo\EuGuaranteeLabel\Block\Product\Garan $block */
+/** @var \Magento\Framework\Escaper $escaper */
+if (!$block->isVisible()) {
+    return;
+}
+$data = $block->getGaranData();
+if (!$data) {
+    return;
+}
+$declarationUrl = $block->getDeclarationUrl();
+$years = (int) $data['years'];
+$productId = (int) ($block->getProduct() ? $block->getProduct()->getId() : 0);
+$panelId = 'eu-garan-panel-' . $productId;
+$alt = (string) __(
+    'EU GARAN Haltbarkeitsgarantie: %1 Jahre, %2, %3',
+    $years,
+    $data['brand'],
+    $data['model']
+);
+?>
+<div class="eu-guarantee eu-garan" data-eu-garan-root
+     data-mage-init='{"Solutioo_EuGuaranteeLabel/js/garan-expand": {}}'>
+    <button type="button"
+            class="eu-garan-toggle"
+            aria-expanded="false"
+            aria-controls="<?= $escaper->escapeHtmlAttr($panelId) ?>"
+            aria-label="<?= $escaper->escapeHtmlAttr(__('EU GARAN Label anzeigen oder ausblenden')) ?>">
+        <span class="eu-garan-years" aria-hidden="true">
+            <span class="eu-garan-years__num"><?= $escaper->escapeHtml((string) $years) ?></span>
+            <span class="eu-garan-years__unit"><?= $escaper->escapeHtml(__('Jahre')) ?></span>
+        </span>
+        <span class="eu-garan-toggle__text">
+            <span class="eu-garan-caption"><?= $escaper->escapeHtml(__('EU-Haltbarkeitsgarantie (GARAN)')) ?></span>
+            <span class="eu-garan-hint">
+                <span data-role="garan-hint-open"><?= $escaper->escapeHtml(__('Label vergrößern')) ?></span>
+                <span data-role="garan-hint-close" hidden><?= $escaper->escapeHtml(__('Label schließen')) ?></span>
+            </span>
+        </span>
+    </button>
+    <div id="<?= $escaper->escapeHtmlAttr($panelId) ?>" class="eu-garan-panel" hidden>
+        <img src="<?= $escaper->escapeUrl($block->getExpandedImageUrl()) ?>"
+             alt="<?= $escaper->escapeHtmlAttr($alt) ?>"
+             width="280"
+             loading="lazy"
+             decoding="async"/>
+        <p>
+            <a href="<?= $escaper->escapeUrl($block->getGaranInfoUrl()) ?>" target="_blank" rel="noopener noreferrer">
+                <?= $escaper->escapeHtml(__('Mehr zur Haltbarkeitsgarantie (Your Europe)')) ?>
+            </a>
+            <?php if ($declarationUrl): ?>
+                ·
+                <a href="<?= $escaper->escapeUrl($declarationUrl) ?>">
+                    <?= $escaper->escapeHtml(__('Garantieerklärung ansehen')) ?>
+                </a>
+            <?php endif; ?>
+            ·
+            <a href="<?= $escaper->escapeUrl($block->getNoticePageUrl()) ?>">
+                <?= $escaper->escapeHtml(__('Zur gesetzlichen Gewährleistung')) ?>
+            </a>
+        </p>
+    </div>
+</div>
+<script>
+    (function () {
+        if (typeof require === 'function') {
+            return;
+        }
+        var root = document.currentScript && document.currentScript.previousElementSibling;
+        if (!root || !root.hasAttribute('data-eu-garan-root') || root.getAttribute('data-eu-garan-bound')) {
+            return;
+        }
+        root.setAttribute('data-eu-garan-bound', '1');
+        var btn = root.querySelector('.eu-garan-toggle');
+        var panel = root.querySelector('.eu-garan-panel');
+        var hintOpen = root.querySelector('[data-role="garan-hint-open"]');
+        var hintClose = root.querySelector('[data-role="garan-hint-close"]');
+        if (!btn || !panel) {
+            return;
+        }
+        function setOpen(open) {
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            root.classList.toggle('eu-garan--open', open);
+            if (open) {
+                panel.removeAttribute('hidden');
+            } else {
+                panel.setAttribute('hidden', 'hidden');
+            }
+            if (hintOpen && hintClose) {
+                if (open) {
+                    hintOpen.setAttribute('hidden', 'hidden');
+                    hintClose.removeAttribute('hidden');
+                } else {
+                    hintOpen.removeAttribute('hidden');
+                    hintClose.setAttribute('hidden', 'hidden');
+                }
+            }
+        }
+        btn.addEventListener('click', function () {
+            setOpen(btn.getAttribute('aria-expanded') !== 'true');
+        });
+    })();
+</script>

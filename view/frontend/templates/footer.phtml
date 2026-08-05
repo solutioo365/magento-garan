@@ -1,0 +1,133 @@
+<?php
+/** @var \Solutioo\EuGuaranteeLabel\Block\Notice $block */
+/** @var \Magento\Framework\Escaper $escaper */
+if (!$block->isVisible()) {
+    return;
+}
+
+if ($block->isFooterLinkStyle()) {
+    $linkText = $block->getFooterLinkText();
+    $noticeUrl = $escaper->escapeUrl($block->getNoticePageUrl());
+    $linkTextEsc = $escaper->escapeHtml($linkText);
+    $linkTitle = $escaper->escapeHtmlAttr($linkText);
+    ?>
+    <div class="eu-guarantee eu-guarantee-footer-link"
+         data-mage-init='{"Solutioo_EuGuaranteeLabel/js/footer-link": {}}'>
+        <a class="eu-guarantee-footer-link__a"
+           href="<?= $noticeUrl ?>"
+           title="<?= $linkTitle ?>">
+            <?= $linkTextEsc ?>
+        </a>
+    </div>
+    <script>
+        (function () {
+            if (typeof require === 'function') {
+                return;
+            }
+            document.addEventListener('DOMContentLoaded', function () {
+                var wraps = document.querySelectorAll('.eu-guarantee-footer-link:not([data-placed])');
+                if (!wraps.length) {
+                    return;
+                }
+                var wrap = wraps[0];
+                var link = wrap.querySelector('a.eu-guarantee-footer-link__a');
+                if (!link) {
+                    return;
+                }
+                for (var d = 1; d < wraps.length; d++) {
+                    wraps[d].setAttribute('data-placed', '1');
+                    wraps[d].remove();
+                }
+                var selectors = [
+                    'footer .footer.content ul',
+                    '.page-footer .footer.content ul',
+                    'footer .footer-links',
+                    'footer nav ul',
+                    'footer ul',
+                    '#footer .links'
+                ];
+                var target = null;
+                for (var i = 0; i < selectors.length; i++) {
+                    target = document.querySelector(selectors[i]);
+                    if (target) {
+                        break;
+                    }
+                }
+                if (!target) {
+                    wrap.classList.add('eu-guarantee-footer-link--fallback');
+                    return;
+                }
+                if (target.querySelector('a.eu-guarantee-footer-link__a')) {
+                    wrap.setAttribute('data-placed', '1');
+                    wrap.remove();
+                    return;
+                }
+                var tag = (target.tagName || '').toLowerCase();
+                if (tag === 'ul' || tag === 'ol') {
+                    // First li often has no mt-4; prefer a spaced sibling (Hyvä)
+                    var sampleLi = target.querySelector('li.mt-4')
+                        || target.querySelector('li.nav.item')
+                        || target.querySelector('li:last-child')
+                        || target.querySelector('li');
+                    var sampleA = sampleLi ? sampleLi.querySelector('a') : null;
+                    var li = document.createElement('li');
+                    if (sampleLi && sampleLi.className) {
+                        li.className = sampleLi.className;
+                    } else {
+                        li.className = 'mt-4';
+                    }
+                    li.classList.add('eu-guarantee-footer-link__item');
+                    if (sampleA && sampleA.className) {
+                        link.className = (sampleA.className + ' eu-guarantee-footer-link__a').replace(/\s+/g, ' ').trim();
+                    } else {
+                        link.classList.add('text-base', 'leading-6');
+                    }
+                    li.appendChild(link);
+                    target.appendChild(li);
+                } else {
+                    target.appendChild(link);
+                }
+                wrap.setAttribute('data-placed', '1');
+                wrap.remove();
+            });
+        })();
+    </script>
+    <?php
+    return;
+}
+
+$heading = $block->getFooterHeading() ?: (string) __('Gesetzliche Gewährleistung');
+?>
+<div class="eu-guarantee eu-guarantee-footer">
+    <details class="eu-guarantee-footer-box">
+        <summary class="eu-guarantee-footer-summary">
+            <span class="eu-guarantee-footer-text">
+                <strong><?= $escaper->escapeHtml($heading) ?></strong>
+                <span><?= $escaper->escapeHtml(__('Ihre gesetzlichen Gewährleistungsrechte – Label mit einem Klick anzeigen.')) ?></span>
+            </span>
+            <span class="eu-guarantee-footer-btn">
+                <span class="eu-guarantee-footer-btn-open"><?= $escaper->escapeHtml(__('Label anzeigen')) ?></span>
+                <span class="eu-guarantee-footer-btn-close"><?= $escaper->escapeHtml(__('Schließen')) ?></span>
+            </span>
+        </summary>
+        <div class="eu-guarantee-footer-panel">
+            <img src="<?= $escaper->escapeUrl($block->getNoticeImageUrl()) ?>"
+                 alt="<?= $escaper->escapeHtmlAttr(__('Harmonisiertes EU-Gewährleistungslabel')) ?>"
+                 loading="lazy"
+                 decoding="async"/>
+            <p>
+                <a href="<?= $escaper->escapeUrl($block->getNoticePageUrl()) ?>">
+                    <?= $escaper->escapeHtml(__('Auf eigener Seite öffnen')) ?>
+                </a>
+                <?php if ($block->getMoreInfoUrl()): ?>
+                    ·
+                    <a href="<?= $escaper->escapeUrl($block->getMoreInfoUrl()) ?>"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        <?= $escaper->escapeHtml(__('Mehr Infos (Your Europe)')) ?>
+                    </a>
+                <?php endif; ?>
+            </p>
+        </div>
+    </details>
+</div>
