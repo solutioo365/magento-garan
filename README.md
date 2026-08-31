@@ -30,7 +30,7 @@ Depends on [`solutioo/module-base`](https://github.com/solutioo365/magento-base)
 ### Composer
 
 ```bash
-composer config repositories.solutioo composer https://www.solutioo.de/packages/
+composer config repositories.solutioo composer https://www.solutioo.de/wp-content/packages/
 composer require solutioo/module-eu-guarantee-label
 bin/magento module:enable Solutioo_Base Solutioo_EuGuaranteeLabel
 bin/magento setup:upgrade
