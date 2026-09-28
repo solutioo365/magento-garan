@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1 – 2026-09-28
+
+- README: config texts (footer, cart/checkout) override i18n (#3)
+
 ## 1.0.0 – 2026-08-05
 
 - First public release
