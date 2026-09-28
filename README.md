@@ -52,6 +52,8 @@ bin/magento cache:flush
 
 Turn the module on, choose footer style (link or banner), locale handling, cart/checkout text and GARAN options.
 
+**Translations:** Footer heading and cart/checkout link text are stored in admin config (defaults are German). Those values override `i18n/*.csv`. For Dutch/English (or any other locale), either clear the fields so the `__()` fallback is used, or set the text per store view.
+
 ![Admin configuration: EU Gewährleistung / GARAN](docs/images/admin-configuration.jpg)
 
 *Magento Admin – module settings (General, storefront display, GARAN)*

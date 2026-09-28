@@ -70,8 +70,8 @@ So sieht der Shop das **gesetzliche Label**, ohne GARAN-Produktdaten.
 | **Im Warenkorb zeigen** | Ja |
 | **Im Checkout zeigen** | Ja |
 | **Eigene Infoseite aktiv** | Ja |
-| **Footer-Überschrift** | z. B. `Gesetzliche Gewährleistung` (Linktext in der Fußleiste) |
-| **Warenkorb-/Checkout-Linktext** | z. B. `Ihre gesetzlichen Gewährleistungsrechte` |
+| **Footer-Überschrift** | z. B. `Gesetzliche Gewährleistung` (Linktext in der Fußleiste). Befüllter Wert überschreibt i18n. |
+| **Warenkorb-/Checkout-Linktext** | z. B. `Ihre gesetzlichen Gewährleistungsrechte`. Befüllter Wert überschreibt i18n. |
 
 **Footer-Darstellung – zwei Varianten:**
 
